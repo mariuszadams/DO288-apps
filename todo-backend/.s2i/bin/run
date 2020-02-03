@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "S2I. before run call..."
+exec /usr/libexec/s2i/run

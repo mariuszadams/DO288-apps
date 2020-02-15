@@ -12,21 +12,21 @@ config_s2i
 
 echo "---> Installing application source"
 
-ls -la /tmp/src > /tmp/src/ls.html
+du -h /tmp/src > /tmp/src/ls.html
 
-#cp -Rf /tmp/src/*.html ./
 
 DATE=`date "+%b %d, %Y @ %H:%M %p"`
 
 echo "---> Creating info page"
-echo "Page built on $DATE" >> ./info.html
+echo "Page built on $DATE" >> /tmp/src/info.html
 echo "Proudly served by Apache HTTP Server version $HTTPD_VERSION" >> /tmp/src/info.html
 
 ######## CUSTOMIZATION ENDS HERE ############
 
 
 echo "---> Installing application source"
-cp -af /tmp/src/. ./
+cp -Rf /tmp/src/*.html ./
+#cp -af /tmp/src/. ./
 
 # Fix source directory permissions
 fix-permissions ./
